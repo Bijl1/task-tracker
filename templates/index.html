@@ -2,10 +2,17 @@
 <html>
 <head>
     <title>Task Tracker</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome to Task Tracker</h1>
-    <a href="{{ url_for('signup') }}">Sign Up</a>
-    <a href="{{ url_for('login') }}">Log In</a>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to Task Tracker</h1>
+        </div>
+        <div class="navigation">
+            <a href="{{ url_for('signup') }}" class="nav-link">Sign Up</a>
+            <a href="{{ url_for('login') }}" class="nav-link">Log In</a>
+        </div>
+    </div>
 </body>
 </html>

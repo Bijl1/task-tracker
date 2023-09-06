@@ -2,33 +2,50 @@
 <html>
 <head>
     <title>Create Task</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Create Task</h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-    <form method="POST" action="{{ url_for('create_task') }}">
-        <label for="name">Name/Place:</label>
-        <input type="text" id="name" name="name" required>
-        <br>
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
-        <br>
-        <label for="time">Time:</label>
-        <input type="time" id="time" name="time" required>
-        <br>
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea>
-        <br>
-        <input type="submit" value="Create Task">
-    </form>
-    <a href="{{ url_for('tasks') }}">Back to Tasks</a>
+    <div class="container">
+        <div class="header">
+            <h1>Create Task</h1>
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert">
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+        <div class="form-container">
+            <form method="POST" action="{{ url_for('create_task') }}">
+                <div class="form-group">
+                    <label for="name">Name/Place:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create Task">
+                </div>
+            </form>
+        </div>
+        <div class="action-button">
+            <a href="{{ url_for('tasks') }}" class="nav-link">Back to Tasks</a>
+        </div>
+    </div>
 </body>
 </html>
